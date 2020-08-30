@@ -1,0 +1,115 @@
+---
+title: "ANALISIS EXPLORATORIO"
+author: "NINASIVINCHA"
+date: "30/8/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(readxl)
+library(dplyr)
+library(tidyr)
+library(kableExtra)
+
+setwd("C:/Users/Christian/Desktop/BD")
+bdene2017 <-  readxl::read_xls("CA-0001-en2017.xls",sheet = "1",skip = 6)
+bdene2017<- bdene2017[-1,c(1,34)]
+colnames(bdene2017) <- c("Cuentas","Ene - 2017")
+
+bdfe2017 <-  readxl::read_xls("CA-0001-fe2017.xls",sheet = "1",skip = 6)
+bdfe2017<- bdfe2017[-1,c(1,34)]
+colnames(bdfe2017) <- c("Cuentas","Feb - 2017")
+
+bdma2017 <-  readxl::read_xls("CA-0001-ma2017.xls",sheet = "1",skip = 6)
+bdma2017<- bdma2017[-1,c(1,34)]
+colnames(bdma2017) <- c("Cuentas","Mar - 2017")
+
+bdab2017 <-  readxl::read_xls("CA-0001-ab2017.xls",sheet = "1",skip = 6)
+bdab2017<- bdab2017[-1,c(1,34)]
+colnames(bdab2017) <- c("Cuentas","Abr - 2017")
+
+bdmy2017 <-  readxl::read_xls("CA-0001-my2017.xls",sheet = "1",skip = 6)
+bdmy2017<- bdmy2017[-1,c(1,34)]
+colnames(bdmy2017) <- c("Cuentas","May - 2017")
+
+bdjn2017 <-  readxl::read_xls("CA-0001-jn2017.xls",sheet = "1",skip = 6)
+bdjn2017<- bdjn2017[-1,c(1,34)]
+colnames(bdjn2017) <- c("Cuentas","Jun - 2017")
+
+bdjl2017 <-  readxl::read_xls("CA-0001-jl2017.xls",sheet = "1",skip = 6)
+bdjl2017<- bdjl2017[-1,c(1,34)]
+colnames(bdjl2017) <- c("Cuentas","Jul - 2017")
+
+bdag2017 <-  readxl::read_xls("CA-0001-ag2017.xls",sheet = "1",skip = 6)
+bdag2017<- bdag2017[-1,c(1,34)]
+colnames(bdag2017) <- c("Cuentas","Ago - 2017")
+
+bdse2017 <-  readxl::read_xls("CA-0001-se2017.xls",sheet = "1",skip = 6)
+bdse2017<- bdse2017[-1,c(1,34)]
+colnames(bdse2017) <- c("Cuentas","Set - 2017")
+
+bdoc2017 <-  readxl::read_xls("CA-0001-oc2017.xls",sheet = "1",skip = 6)
+bdoc2017<- bdoc2017[-1,c(1,34)]
+colnames(bdoc2017) <- c("Cuentas","Oct - 2017")
+
+bdno2017 <-  readxl::read_xls("CA-0001-no2017.xls",sheet = "1",skip = 6)
+bdno2017<- bdno2017[-1,c(1,34)]
+colnames(bdno2017) <- c("Cuentas","Nov - 2017")
+
+bddi2017 <-  readxl::read_xls("CA-0001-di2017.xls",sheet = "1",skip = 6)
+bddi2017<- bddi2017[-1,c(1,34)]
+colnames(bddi2017) <- c("Cuentas","Dic - 2017")
+
+ENE17<- bdene2017 %>%
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") ) 
+FEB17<- bdfe2017 %>%
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )
+MAR17<- bdma2017 %>%
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )   
+ABR17<- bdab2017 %>%
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )
+MAY17<- bdmy2017 %>%
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )
+JUN17<- bdjn2017 %>%
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )   
+JUL17<- bdjl2017 %>%
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )
+AGO17<- bdag2017 %>%
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )   
+SET17<- bdse2017 %>%
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )
+OCT17<- bdoc2017 %>%
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )   
+NOV17<- bdno2017 %>%
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )
+DIC17<- bddi2017 %>%
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )   
+
+FEB17<-FEB17[,-1]
+MAR17<-MAR17[,-1]
+ABR17<-ABR17[,-1]
+MAY17<-MAY17[,-1]
+JUN17<-JUN17[,-1]
+JUL17<-JUL17[,-1]
+AGO17<-AGO17[,-1]
+SET17<-SET17[,-1]
+OCT17<-OCT17[,-1]
+NOV17<-NOV17[,-1]
+DIC17<-DIC17[,-1]
+
+
+BD2017 <- cbind(ENE17,FEB17,MAR17,ABR17,MAY17,JUN17,JUL17,AGO17,SET17,OCT17,NOV17,DIC17)
+```
+
+## Analisis de cantidades invertidas en las AFP durante el año 2017
+
+Breve analisis de cantidades
+
+
+```{r pressure, echo=FALSE}
+
+kable(BD2017)
+```
+
+
