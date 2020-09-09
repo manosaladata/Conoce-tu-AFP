@@ -1,4 +1,30 @@
+---
+title: "CONOCE TU AFP. Conoce tus inversiones."
+date: "Conocer el portafolio de tu AFP te ayudara a entender mejor tus ganancias"
+output:
+  prettydoc::html_pretty:
+    theme: leonids
+    highlight: github
+---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Que es una AFP
+
+
+Las Administradoras de Fondos de Pensiones (AFP), son instituciones financieras privadas que tienen
+como único fin la administración de los fondos de pensiones bajo la modalidad de cuentas personales.
+Otorgan pensiones de jubilación, invalidez, sobrevivencia y proporcionan gastos de sepelio.
+Las AFP fueron creadas en 1993 y operan dentro del Sistema Privado de Pensiones (SPP), el cual es
+supervisado y fiscalizado por la Superintendencia de Banca, Seguros y AFP (SBS).
+
+
+![Conoce tu AFP, conoce tus inversiones](https://www.blappsis.com/wp-content/uploads/2018/12/Abuelos-1-1.jpg)
+
+
+```{r configuracion_inicial,echo=FALSE,comment=F,warning=FALSE,message=FALSE}
 library(gt)
 library(readxl)
 library(tidyr)
@@ -142,78 +168,74 @@ bdoc2019 <-  readxl::read_xls("CA-0001-oc2019.xls",sheet = "1",skip = 6)
 bdoc2019<- bdoc2019[-1,c(1,34)]
 colnames(bdoc2019) <- c("Cuentas","Oct - 2019")
 
-
-
 ENE17<- bdene2017 %>%
-  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL") ) 
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") ) 
 FEB17<- bdfe2017 %>%
-  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL") )
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )
 MAR17<- bdma2017 %>%
-  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL") )   
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )   
 ABR17<- bdab2017 %>%
-  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL") )
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )
 MAY17<- bdmy2017 %>%
-  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL") )
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )
 JUN17<- bdjn2017 %>%
-  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL") )   
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )   
 JUL17<- bdjl2017 %>%
-  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL") )
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )
 AGO17<- bdag2017 %>%
-  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL") )   
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )   
 SET17<- bdse2017 %>%
-  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL") )
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )
 OCT17<- bdoc2017 %>%
-  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL") )   
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )   
 NOV17<- bdno2017 %>%
-  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL") )
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )
 DIC17<- bddi2017 %>%
-  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL") )   
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )   
 ENE18<- bdene2018 %>%
-  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL") ) 
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") ) 
 FEB18<- bdfe2018 %>%
-  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL") )
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )
 MAR18<- bdma2018 %>%
-  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL") )   
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )   
 ABR18<- bdab2018 %>%
-  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL") )
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )
 MAY18<- bdmy2018 %>%
-  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL") )
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )
 JUN18<- bdjn2018 %>%
-  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL") )   
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )   
 JUL18<- bdjl2018 %>%
-  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL") )
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )
 AGO18<- bdag2018 %>%
-  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL") )   
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )   
 SET18<- bdse2018 %>%
-  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL") )
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )
 OCT18<- bdoc2018 %>%
-  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL") )   
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )   
 NOV18<- bdno2018 %>%
-  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL") )
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )
 DIC18<- bddi2018 %>%
-  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL") )
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )
 ENE19<- bdene2019 %>%
-  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL") ) 
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") ) 
 FEB19<- bdfe2019 %>%
-  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL") )
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )
 MAR19<- bdma2019 %>%
-  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL") )   
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )   
 ABR19<- bdab2019 %>%
-  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL") )
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )
 MAY19<- bdmy2019 %>%
-  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL") )
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )
 JUN19<- bdjn2019 %>%
-  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL") )   
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )   
 JUL19<- bdjl2019 %>%
-  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL") )
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )
 AGO19<- bdag2019 %>%
-  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL") )   
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )   
 SET19<- bdse2019 %>%
-  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL") )
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") )
 OCT19<- bdoc2019 %>%
-  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL") ) 
-
-
+  filter(`Cuentas` %in% c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL") ) 
 
 ENE17[,c(2)] <- sapply(ENE17[,c(2)],function(x) round(as.numeric(as.character(x)),2) )
 FEB17[,c(2)] <- sapply(FEB17[,c(2)],function(x) round(as.numeric(as.character(x)),2) )
@@ -294,19 +316,68 @@ BD2019 <- cbind(ENE19,FEB19,MAR19,ABR19,MAY19,JUN19,JUL19,AGO19,SET19,OCT19)
 BD2017 <- data.frame(t(BD2017[-1]))
 BD2018 <- data.frame(t(BD2018[-1]))
 BD2019 <- data.frame(t(BD2019[-1]))
-colnames(BD2017) <- c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL")
-colnames(BD2018) <- c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL")
-colnames(BD2019) <- c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL")
+colnames(BD2017) <- c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL")
+colnames(BD2018) <- c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL")
+colnames(BD2019) <- c("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL")
 
-sapply(BD2017,class)
-sapply(BD2018,class)
-sapply(BD2019,class)
+```
 
-BD2017 %>%
+## ¿Cuantas AFP's existen?
+
+En el Perú, hay cuatro: Integra, Hábitat, Prima y Profuturo. Si formas parte del Sistema de Privado de Pensiones, es muy probable que pertenezcas a la AFP que ganó la licitación al momento de tu afiliación. Para estar seguro, solo necesitas consultarlo en la web de la Superintendencia de Banca y Seguros del Perú
+
+### Conoce tu AFP
+Apreta [AQUI](https://www2.sbs.gob.pe/afiliados/paginas/Consulta.aspx) para conocer a que AFP estas afiliado
+
+
+## Analisis de portafolios
+### ¿Qué es un portafolio?
+También llamado Cartera de Inversión, es una selección de documentos o valores que se cotizan en el mercado bursátil y en los que una persona o empresa deciden colocar o invertir su dinero. Los portafolios de inversión se integran con los diferentes instrumentos que el inversionista haya seleccionado.
+
+### ¿Porqué es importante conocer el portafolio de tu AFP?
+Estamos de acuerdo en que invertir es la mejor manera de hacer crecer tu capital, dependiendo siempre del nivel de riesgo que desees asumir. Para que el dinero crezca, existen diferentes instrumentos de inversión que ofrecen menos o más rendimientos con base en el riesgo que representan y la liquidez que ofrecen. Conocer el portafolio de AFP podras conocer un poco mas de certeza como seran sus ganancias y por ende: cuanto ganará tu fondo.
+
+## Análisis de la composicion de portafolios 
+### 2019
+
+Tenemos:
+
+```{r 2019, echo=FALSE}
+BD2019 %>%
   gt%>%
-  fmt_number(columns = vars("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TR�NSITO","TOTAL"), decimals = 2)%>%
+  fmt_number(columns = vars("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL"), decimals = 2)%>%
   tab_header(
     title = md("Cartera por tipo de emisor"),
     subtitle = "Valores en Miles de Soles"
     )
+```
+
+### 2018
+
+Tenemos:
+
+```{r 2018, echo=FALSE}
+BD2018 %>%
+  gt%>%
+  fmt_number(columns = vars("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL"), decimals = 2)%>%
+  tab_header(
+    title = md("Cartera por tipo de emisor"),
+    subtitle = "Valores en Miles de Soles"
+    )
+```
+
+### 2017
+
+Tenemos:
+
+```{r 2017, echo=FALSE}
+BD2017 %>%
+  gt%>%
+  fmt_number(columns = vars("I. NACIONAL","II. EXTRANJERO","III. OPERACIONES EN TRÁNSITO","TOTAL"), decimals = 2)%>%
+  tab_header(
+    title = md("Cartera por tipo de emisor"),
+    subtitle = "Valores en Miles de Soles"
+    )
+```
+
 
