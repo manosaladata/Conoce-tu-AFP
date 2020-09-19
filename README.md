@@ -5,6 +5,7 @@ Estamos de acuerdo en que invertir es la mejor manera de hacer crecer tu capital
 
 ### Participantes
 - [Christian Ninasivincha](http://www.linkedin.com/in/ninasivincha "Christian Ninasivincha")
+- [Jhon Figueroa](https://www.linkedin.com/in/jhon-vidal-figueroa-céspedes-166837124/)
 
 ### Con el apoyo de:
 ![](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ2_IQGwuijxeJQNMj754mXhW8csNXmHL1djg&usqp=CAU)
