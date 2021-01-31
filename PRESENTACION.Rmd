@@ -9,8 +9,36 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-setwd("C:/Users/Christian/Desktop/GH2")
-library(gt)
+setwd("C:/Users/Christian/Desktop/SBS 2021/2014")
+
+library(tidyverse)
+library(dplyr)
+library(tidyr)
+library(gapminder)
+library(ggplot2)
+library(gganimate)
+
+df <- list.files(pattern = ".RDS") %>%
+  map_dfr(readRDS)
+
+  #PRIMA FONDO 1
+grafico <- df %>%
+  filter(`Fondo` %in% c(1),`key` %in% c("Nacional") )%>% 
+  ggplot(aes(x = Mes, y = value, group = AFP, color = AFP)) + geom_point() + geom_line()+transition_reveal(Mes) 
+
+
+#PRIMA FONDO 2
+grafico2 <- df %>%
+  filter(`Fondo` %in% c(2),`key` %in% c("Nacional") )%>% 
+  ggplot(aes(x = Mes, y = value, group = AFP, color = AFP)) + geom_point() + geom_line()+transition_reveal(Mes) 
+
+
+#PRIMA FONDO 3
+grafico3 <- df %>%
+  filter(`Fondo` %in% c(3),`key` %in% c("Nacional") )%>% 
+  ggplot(aes(x = Mes, y = value, group = AFP, color = AFP)) + geom_point() + geom_line()+transition_reveal(Mes) 
+
+
 ```
 
 
@@ -29,10 +57,10 @@ supervisado y fiscalizado por la Superintendencia de Banca, Seguros y AFP (SBS).
 
 ## Participacion en las carteras
 
-Composicion
+###Evolucion FONDO 1 - Nacional
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
-source("archivo.R", local = knitr::knit_global())
-gt(FINAL)
-
+```{r, echo=FALSE, warning=FALSE, message=FALSE, }
+animate(grafico)
+animate(grafico2)
+animate(grafico3)
 ```
